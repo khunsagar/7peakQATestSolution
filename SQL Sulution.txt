@@ -1,0 +1,25 @@
+A. Write an SQL query to display the total salary of each employee adding the Salary with Variable
+value
+
+SELECT EmpId, (Salary + Variable) AS TotalSalary FROM EmployeeSalary;
+
+SELECT 
+    `emp`.`EmpId`,
+    `emp`.`FullName`,
+    `sal`.*
+FROM
+    `EmployeeDetails` `emp`
+        LEFT OUTER JOIN
+    `EmployeeSalary` `sal` ON `emp`.`EmpId` = `sal`.`EmpId`;
+	
+
+B. Write an SQL query to fetch employee names having a salary greater than or equal to 5000 and
+less than or equal to 10000
+
+select ed.FullName  from EmployeeSalary  es INNER JOIN EmployeeDetails ed ON ed.EmpId= es.EmpId where es.Salary >= 5000 and es.Salary <=10000;
+
+
+C. Write a query to fetch employee names and salary records. Display the employee details even if
+the salary record is not present for the employee.
+
+select * from EmployeeDetails ed LEFT JOIN EmployeeSalary es ON es.EmpId= ed.EmpId;
